@@ -6,7 +6,7 @@ import com.assignment.model.Customer;
 import com.assignment.model.Saler;
 
 public interface SalerService {
-	public Saler saveAdmin(Saler saler) throws NotFoundException;
+	public Saler saveSaler(Saler saler) throws NotFoundException;
 
 	public Saler update(Saler saler) throws NotFoundException;
 

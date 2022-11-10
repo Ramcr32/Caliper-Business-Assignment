@@ -14,7 +14,7 @@ public class SalerServiceImp implements SalerService {
 	private SalerDao sdao;
 
 	@Override
-	public Saler saveAdmin(Saler saler) throws NotFoundException {
+	public Saler saveSaler(Saler saler) throws NotFoundException {
 		
 		return sdao.save(saler);
 	}
