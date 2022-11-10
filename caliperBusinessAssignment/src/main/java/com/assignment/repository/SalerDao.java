@@ -5,7 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import com.assignment.model.Admin;
 import com.assignment.model.Customer;
+import com.assignment.model.Saler;
 @Repository
-public interface SalerDao extends JpaRepository<Admin, Integer> {
+public interface SalerDao extends JpaRepository<Saler, Integer> {
 
 }

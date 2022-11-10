@@ -3,10 +3,9 @@ package com.assignment.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.assignment.model.Admin;
-import com.assignment.model.Customer;
+import com.assignment.model.Items;
 
 @Repository
-public interface AdminDao extends JpaRepository<Admin, Integer> {
+public interface ItemDao extends JpaRepository<Items, Integer>{
 
 }
