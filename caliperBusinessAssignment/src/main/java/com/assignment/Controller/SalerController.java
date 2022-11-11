@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.assignment.model.Admin;
 import com.assignment.model.Saler;
+import com.assignment.model.SalerItems;
 import com.assignment.service.AdminService;
 import com.assignment.service.SalerService;
 
@@ -25,7 +26,7 @@ public class SalerController {
 	@PostMapping("/saler/")
 	public ResponseEntity<Saler> insertAdminHandler(@RequestBody Saler saler) {
 		Saler newsaler = salerService.saveSaler(saler);
-		return new ResponseEntity<>(newsaler, HttpStatus.OK);
+		return new ResponseEntity<>(newsaler, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/saler/{id}")
@@ -38,5 +39,10 @@ public class SalerController {
 	public ResponseEntity<Saler> updateAdminHandler(@RequestBody Saler saler) {
 		Saler updatedsaler = salerService.update(saler);
 		return new ResponseEntity<>(updatedsaler, HttpStatus.ACCEPTED);
+	}
+	@PostMapping("/saler/item")
+	public ResponseEntity<SalerItems> insertAdminHandler(@RequestBody SalerItems item) {
+		SalerItems newitem = salerService.addNewItem(item);
+		return new ResponseEntity<>(newitem, HttpStatus.CREATED);
 	}
 }
