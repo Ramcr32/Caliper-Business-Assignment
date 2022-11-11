@@ -1,5 +1,7 @@
 package com.assignment.Controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.assignment.model.Admin;
+import com.assignment.model.Items;
 import com.assignment.service.AdminService;
 
 @RestController
@@ -33,8 +36,23 @@ public class AdminController {
 	}
 
 	@PutMapping("/")
-	public ResponseEntity<String> updateAdminHandler(@RequestBody Admin admin) {
+	public ResponseEntity<Admin> updateAdminHandler(@RequestBody Admin admin) {
 		Admin updatedAdmin = adminService.update(admin);
-		return new ResponseEntity<String>("admin updated " + updatedAdmin, HttpStatus.ACCEPTED);
+		return new ResponseEntity<>(updatedAdmin, HttpStatus.ACCEPTED);
+	}
+	@PostMapping("/items")
+	public ResponseEntity<Items> addItemsHandler(@RequestBody @Valid Items item) {
+		Items newItem = adminService.addNewItem(item);
+		return new ResponseEntity<>(newItem, HttpStatus.OK);
+	}
+	@PutMapping("/items")
+	public ResponseEntity<Items> updateItemHandler(@RequestBody Items item) {
+		Items updatedItem = adminService.updateItem(item);
+		return new ResponseEntity<>(updatedItem, HttpStatus.ACCEPTED);
+	}
+	@DeleteMapping("/items/{id}")
+	public ResponseEntity<Items> deleteItemHandler(@PathVariable Integer id) {
+		Items deletedItem = adminService.deleteItem(id);
+		return new ResponseEntity<>(deletedItem, HttpStatus.ACCEPTED);
 	}
 }

@@ -17,24 +17,24 @@ import com.assignment.service.AdminService;
 import com.assignment.service.SalerService;
 
 @RestController
-@RequestMapping("/saler")
+
 public class SalerController {
 	@Autowired
 	private SalerService salerService;
 
-	@PostMapping("/")
+	@PostMapping("/saler/")
 	public ResponseEntity<Saler> insertAdminHandler(@RequestBody Saler saler) {
 		Saler newsaler = salerService.saveSaler(saler);
 		return new ResponseEntity<>(newsaler, HttpStatus.OK);
 	}
 
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/saler/{id}")
 	public ResponseEntity<Saler> deleteMappingHandler(@PathVariable("id") Integer id) {
 		Saler saler = salerService.delete(id);
 		return new ResponseEntity<>(saler, HttpStatus.OK);
 	}
 
-	@PutMapping("/")
+	@PutMapping("/saler/")
 	public ResponseEntity<Saler> updateAdminHandler(@RequestBody Saler saler) {
 		Saler updatedsaler = salerService.update(saler);
 		return new ResponseEntity<>(updatedsaler, HttpStatus.ACCEPTED);
